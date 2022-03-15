@@ -5,7 +5,6 @@
  fully custom firmware: Marcfager github: https://github.com/marcfager/nspanel-mf  
 
 # Features:  
-############  
 
 ## General: 
 Touch-screen offset calibrated.  
@@ -20,7 +19,6 @@ Switch 1 turns on/off Heating.
 Switch 2 turns on/off Hot water.  
   
 # Pages:  
-##########  
   
 ## Home Page:  
 Current weather symbols with transparent backgrounds.  
