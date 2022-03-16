@@ -63,4 +63,5 @@ https://youtu.be/nDS4A_Cmsy8
 
 
 # Extra Info:  
-##### HA sensor code & automations code coming soon.  
+All code I use in HA included in folder code_for_ha_config.   
+
