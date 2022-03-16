@@ -1,0 +1,12 @@
+# switches for nspanel automations
+- platform: switch
+  name: "Autohome Light"
+  entity_id: switch.nspanel_disable_go_to_home
+  
+- platform: switch
+  name: "Autodim Light"
+  entity_id: switch.nspanel_disable_dim_down
+  
+- platform: switch
+  name: "Autoscreensaver Light"
+  entity_id: switch.nspanel_disable_screensaver

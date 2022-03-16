@@ -1,0 +1,13 @@
+- platform: generic_thermostat
+  name: Lounge
+  heater: switch.heating
+  target_sensor: sensor.nspanel_temperature
+  min_temp: 3
+  max_temp: 40
+  target_temp: 22
+  cold_tolerance: 0.5
+  hot_tolerance: 0
+  precision: 1.0
+  min_cycle_duration:
+    seconds: 10
+#    away_temp: 12

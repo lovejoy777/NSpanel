@@ -1,0 +1,221 @@
+# Auto tft upload
+- id: '1646091302647'
+  alias: Update nspanel  TFT on file change
+  description: ''
+  trigger:
+  - platform: event
+    event_type: folder_watcher
+    event_data:
+      event_type: modified
+      path: /config/www/Thermo_01.tft
+  condition: []
+  action:
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 10
+      milliseconds: 0
+  - service: esphome.nspanel_upload_tft
+    data: {}
+  mode: queued
+  max: 2
+
+# switch heating on with relay 1
+- id: '1645281065043'
+  alias: nsp-switch1-on
+  description: ''
+  trigger:
+  - platform: device
+    type: turned_on
+    device_id: c30fa75bcd1c515834e347d78d814292
+    entity_id: switch.nspanel_relay_1
+    domain: switch
+  condition: []
+  action:
+  - service: switch.turn_on
+    data: {}
+    target:
+      entity_id: switch.heating
+  mode: single
+# switch heating off with relay 1
+- id: '1645281150360'
+  alias: nsp-switch1-off
+  description: ''
+  trigger:
+  - platform: device
+    type: turned_off
+    device_id: c30fa75bcd1c515834e347d78d814292
+    entity_id: switch.nspanel_relay_1
+    domain: switch
+  condition: []
+  action:
+  - service: switch.turn_off
+    data: {}
+    target:
+      entity_id: switch.heating
+  mode: single
+# switch hotwater on with relay 2
+- id: '1646358619137'
+  alias: nsp_switch2_on
+  description: ''
+  trigger:
+  - platform: device
+    type: turned_on
+    device_id: c30fa75bcd1c515834e347d78d814292
+    entity_id: switch.nspanel_relay_2
+    domain: switch
+  condition: []
+  action:
+  - service: switch.turn_on
+    data: {}
+    target:
+      entity_id: switch.hotwater
+  mode: single
+# # switch hotwater off with relay 2
+- id: '1646358442241'
+  alias: nsp_switch2_off
+  description: ''
+  trigger:
+  - platform: device
+    type: turned_off
+    device_id: c30fa75bcd1c515834e347d78d814292
+    entity_id: switch.nspanel_relay_2
+    domain: switch
+  condition: []
+  action:
+  - service: switch.turn_off
+    data: {}
+    target:
+      entity_id: switch.hotwater
+  mode: single
+
+# Auto screensaver disable on am
+- id: '1646849275118'
+  alias: auto nspanel screen on am
+  description: 'turn the nspanel auto disable screen saver on in the morning '
+  trigger:
+  - platform: time
+    at: 08:00:00
+  condition: []
+  action:
+  - service: switch.turn_on
+    data: {}
+    target:
+      entity_id: switch.nspanel_disable_screensaver
+  mode: single
+# Auto screensaver disable on am
+- id: '1646849358920'
+  alias: auto nspanel screen off am
+  description: 'turn the naspanel auto disable screen saver off in the morning '
+  trigger:
+  - platform: time
+    at: '10:00'
+  condition: []
+  action:
+  - service: switch.turn_off
+    data: {}
+    target:
+      entity_id: switch.nspanel_disable_screensaver
+  mode: single
+# Auto screensaver disable on pm
+- id: '1646849420612'
+  alias: auto nspanel screen on pm
+  description: 'turn the naspanel auto disable screen saver on in the evening '
+  trigger:
+  - platform: time
+    at: '16:00'
+  condition: []
+  action:
+  - service: switch.turn_on
+    data: {}
+    target:
+      entity_id: switch.nspanel_disable_screensaver
+  mode: single
+# Auto screensaver disable off pm
+- id: '1646849490322'
+  alias: auto nspanel screen off pm
+  description: 'turn the naspanel auto disable screen saver off in the evening '
+  trigger:
+  - platform: time
+    at: '23:00'
+  condition: []
+  action:
+  - service: switch.turn_off
+    data: {}
+    target:
+      entity_id: switch.nspanel_disable_screensaver
+  mode: single
+
+# Radio station for buttons on music page
+# button 1
+- id: '1647025713543'
+  alias: Start SmoothFM
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: input_boolean.play_smoothfm
+    from: 'off'
+    to: 'on'
+  condition: []
+  action:
+  - service: media_player.play_media
+    data:
+      media_content_id: https://media-ssl.musicradio.com/SmoothEastMids
+      media_content_type: music
+    target:
+      device_id: 09f9ecf14dee9fbcb9034b5845fed3d3
+  mode: single
+# button 2
+- id: '1647040918154'
+  alias: Start BBC4
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: input_boolean.play_bbc4
+    from: 'off'
+    to: 'on'
+  condition: []
+  action:
+  - service: media_player.play_media
+    data:
+      media_content_id: http://stream.live.vc.bbcmedia.co.uk/bbc_radio_fourfm
+      media_content_type: music
+    target:
+      entity_id: media_player.kitchen_speaker
+  mode: single
+# button 3
+- id: '1647041761707'
+  alias: Start BBC1
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: input_boolean.play_bbc1
+    from: 'off'
+    to: 'on'
+  condition: []
+  action:
+  - service: media_player.play_media
+    data:
+      media_content_id: https://stream.live.vc.bbcmedia.co.uk/bbc_radio_one
+      media_content_type: music
+    target:
+      entity_id: media_player.kitchen_speaker
+  mode: single
+# button 5
+- id: '1647041936802'
+  alias: Start BBC2
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: input_boolean.play_bbc2
+    from: 'off'
+    to: 'on'
+  condition: []
+  action:
+  - service: media_player.play_media
+    data:
+      media_content_id: https://stream.live.vc.bbcmedia.co.uk/bbc_radio_two
+      media_content_type: music
+    target:
+      entity_id: media_player.kitchen_speaker
+  mode: single

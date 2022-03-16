@@ -1,0 +1,30 @@
+# Need the hacs addon for this
+- platform: temperature_feels_like
+  source: weather.home
+
+# climate target temperature
+- platform: template
+  sensors:
+    target_temp:
+      friendly_name: Target Temperature
+      value_template: "{{ state_attr('climate.lounge', 'temperature') }}"
+
+# hotspot 4 dimmer function
+- platform: template
+  sensors:
+    brightness_lounge_spots:
+      friendly_name: Brightness Lounge Spots
+      value_template: "{{ state_attr('light.lounge_spots', 'brightness') }}"
+# hotspot 5 dimmer function
+- platform: template
+  sensors:
+    brightness_lounge_spots:
+      friendly_name: Brightness Lounge Lamp 1
+      value_template: "{{ state_attr('light.lounge_lamp_1', 'brightness') }}"
+# hotspot 6 dimmer function
+- platform: template
+  sensors:
+    brightness_lounge_spots:
+      friendly_name: Brightness Lounge Lamp 2
+      value_template: "{{ state_attr('light.lounge_lamp_2', 'brightness') }}"
+     

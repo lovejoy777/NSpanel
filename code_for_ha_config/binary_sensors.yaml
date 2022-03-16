@@ -1,0 +1,32 @@
+
+- platform: template
+  sensors:
+    water_state:
+      friendly_name: "water state"
+      device_class: heat
+      value_template: "{{ is_state('switch.hotwater', 'on') }}"
+      
+- platform: template
+  sensors:
+    heating_state:
+      friendly_name: "heating state"
+      device_class: heat
+      value_template: "{{ is_state('switch.heating', 'on') }}"
+      
+- platform: template
+  sensors:
+    auto_home_state:
+      friendly_name: "auto home state"
+      value_template: "{{ is_state('switch.nspanel_disable_go_to_home', 'on') }}"
+      
+- platform: template
+  sensors:
+    auto_dim_state:
+      friendly_name: "auto_dim_state"
+      value_template: "{{ is_state('switch.nspanel_disable_dim_down', 'on') }}"
+      
+- platform: template
+  sensors:
+   auto_screensaver_state:
+     friendly_name: "auto_screensaver_state"
+     value_template: "{{ is_state('switch.nspanel_disable_screensaver', 'on') }}"

@@ -1,0 +1,14 @@
+# radio booleans for nextion nspanel buttons
+play_smoothfm:
+  name: Play SmoothFM
+  icon: mdi:radio
+play_bbc2:
+  name: Play BBC2
+  icon: mdi:radio
+play_bbc1:
+  name: Play BBC1
+  icon: mdi:radio
+play_bbc4:
+  name: Play BBC4
+  icon: mdi:radio
+
