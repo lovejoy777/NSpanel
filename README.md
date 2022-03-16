@@ -8,7 +8,7 @@
 
 ## General: 
 Touch-screen offset calibrated.  
-Auto Upload .HMI file when new one is compiled in the Nextion editor.
+Auto Upload .HMI file when new one is compiled in the Nextion editor.  
 Auto Home.  
 Auto Dim.  
 Auto Screen-saver (I control this with automations in HA).  
@@ -55,6 +55,7 @@ https://youtu.be/nDS4A_Cmsy8
 
 
 # Extra Info:  
+HA sensor code & automations code coming soon.  
 
 
 
