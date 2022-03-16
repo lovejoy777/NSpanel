@@ -54,8 +54,7 @@ Target temperature down button.
 https://youtu.be/nDS4A_Cmsy8  
 
 
-# Extra Info:  
-HA sensor code & automations code coming soon.  
+# Extra Info:    
 
 
 
